@@ -1,14 +1,15 @@
 import React from 'react';
 import data from './products.json';
-import { useParams } from 'react-router-dom/cjs/react-router-dom';
+import { useParams } from 'react-router-dom';
+import Product from './../Product/Product';
 
 const ProductDetails = () => {
-    const details = data ;
-    console.log(details);
-    const {productKey} = useParams();
+  const { productKey } = useParams();
+  const product = data.find(pd => pd.id === productKey);
+  const showButton = false;
     return (
         <div>
-            <h1>{productKey} details coming soon</h1>
+            <Product showButton={showButton} product={product}></Product>
         </div>
     );
 };
